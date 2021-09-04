@@ -1,0 +1,7 @@
+selenium==3.141.0
+Jinja2==2.11.3
+pandas==1.0.1
+beautifulsoup4==4.9.3
+Flask==2.0.1
+flask_sqlalchemy==2.5.1
+gunicorn

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/mainpage.css') }}"
+    />
+    <title>Website Scrapers</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+        <h1 class="display-10">Website Scrapper</h1>
+        <p class="lead">
+          A simple web Application to Scrap website and store results to
+          database.
+        </p>
+      </div>
+    </div>
+    <div class="container col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+      <h2>Company Number:</h2>
+      <form action="{{ url_for('getCompanyId') }}" method="post">
+        <div class="form-group col-md-6">
+          <textarea
+            type="text"
+            class="form-control border border-dark"
+            name="ComapnyIdURL"
+            placeholder="Enter Each Company Number in a seperate Line"
+            rows="10"
+          >07973780013
+00682130968
+00159560366
+01691720468</textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-dark col-md-3"
+          style="background: #000000; margin-top: 10px"
+          data-toggle="modal" data-target="#NotificationPanel"
+        >
+          Send
+        </button>
+      </form>
+      <div class="container">
+        <div class="modal fade" id="NotificationPanel" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Scrapping Data</h5>
+                  
+                </div>
+                <div class="modal-body">
+                    Data will be displayed after Scrapping.
+                </br>
+                Please Wait..
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

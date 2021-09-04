@@ -1,0 +1,34 @@
+.jumbotron {
+  padding: 70px 30px 70px 30px;
+  margin: 0px auto;
+  background: #000000;
+  color: floralwhite;
+}
+.card-header {
+  background-color: #353535;
+}
+.listing-color {
+  background: #19191a;
+  color: #ffffff;
+  border: 5cm;
+}
+/*
+table.dataframe,
+.dataframe th,
+.dataframe td {
+  border-bottom: 0.5px solid #000000;
+  border: 1px solid#000000;
+  border-collapse: collapse;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+  max-width: 1000px;
+}
+*/
+.scraped-container {
+  border: 5px solid#000000;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}

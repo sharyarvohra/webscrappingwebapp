@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/mainpage.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"
+    />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <title>Website Scrapers</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+        <h1 class="display-10">Website Scrapper</h1>
+        <p class="lead">
+          A simple web Application to Scrap website and store results to
+          database.
+        </p>
+      </div>
+    </div>
+    {% block netInsuranceData_ContentBlock %}
+    <div
+      class="container scraped-container col-12 col-md-9 col-xl-8 py-md-3 pl-md-5"
+    >
+      <table id="netInsuranceResults" class="table table-striped">
+        <h1>
+          <center>
+            <a
+              href="https://arearis.netinsurance.it/Area.aspx"
+              target="_blank"
+              class="link-dark"
+              >NetInsurance</a
+            >
+          </center>
+        </h1>
+        <thead>
+          <tr>
+            {% for heading in netInsuranceData_titles %}
+            <th>{{ heading }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in netInsuranceData_tables %}
+          <tr>
+            {% for column in row %}
+            <td>{{ column }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endblock %} {% block AFIESCA_ContentBlock %}
+    <div
+      class="container scraped-container col-12 col-md-9 col-xl-8 py-md-3 pl-md-5"
+    >
+      <table id="AFIESCAResults" class="table table-striped">
+        <h1>
+          <center>
+            <a
+              href="https://class-go.class-consulting.it/login"
+              target="_blank"
+              class="link-dark"
+              >AFIESCAR</a
+            >
+          </center>
+        </h1>
+        <thead>
+          <tr>
+            {% for heading in AFIESCAData_titles %}
+            <th>{{ heading }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in AFIESCAData_tables %}
+          <tr>
+            {% for column in row %}
+            <td>{{ column }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endblock %}
+    <script>
+      $(document).ready(function () {
+        $.noConflict();
+        $("#netInsuranceResults").DataTable({
+          lengthMenu: [
+            [5, 10, 30, -1],
+            [5, 10, 30, "All"],
+          ],
+        });
+        $("#AFIESCAResults").DataTable({
+          lengthMenu: [
+            [5, 10, 30, -1],
+            [5, 10, 30, "All"],
+          ],
+        });
+      });
+    </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
